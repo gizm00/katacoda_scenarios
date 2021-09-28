@@ -30,7 +30,7 @@
     },
     "assets": { 
       "client": [ 
-        {"file": "test.py", "target": "/root"} 
+        {"file": "*", "target": "/root/"} 
         ] 
     }
   },
