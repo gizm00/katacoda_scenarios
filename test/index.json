@@ -30,7 +30,7 @@
     }
   },
   "environment": {
-    "uieditorpath": "/root/code",
+    "uieditorpath": "code",
     "showide": true,
     "idePort": 23000,
     "uilayout": "terminal"
