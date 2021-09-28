@@ -27,12 +27,12 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": { 
+      "host01": [ 
+        {"file": "*", "target": "/root"} 
+        ] 
     }
-  },
-  "assets": { 
-    "host01": [ 
-      {"file": "*", "target": "/root"} 
-      ] 
   },
   "environment": {
     "uieditorpath": "/root",
