@@ -30,8 +30,11 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal"
-  },
+    "uieditorpath": "/root/code",
+    "showide": true,
+    "idePort": 23000,
+    "uilayout": "terminal"
+},
 "backend": {
   "imageid": "python:3.8"
   }
