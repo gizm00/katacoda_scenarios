@@ -29,8 +29,13 @@
       "text": "finish.md"
     }
   },
+  "assets": { 
+    "host01": [ 
+      {"file": "*", "target": "/root"} 
+      ] 
+  },
   "environment": {
-    "uieditorpath": "code",
+    "uieditorpath": "/root",
     "showide": true,
     "idePort": 23000,
     "uilayout": "terminal"
