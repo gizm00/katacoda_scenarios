@@ -1,1 +1,1 @@
-`pip install airflow`{{execute}}
+`pip install apache-airflow`{{execute}}
