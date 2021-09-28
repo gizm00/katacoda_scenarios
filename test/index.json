@@ -30,7 +30,7 @@
     },
     "assets": { 
       "host01": [ 
-        {"file": "*", "target": "/root"} 
+        {"file": "code/*", "target": "/root"} 
         ] 
     }
   },
