@@ -29,8 +29,8 @@
       "text": "finish.md"
     },
     "assets": { 
-      "host01": [ 
-        {"file": "code/*", "target": "/root"} 
+      "client": [ 
+        {"file": "test.py", "target": "/root"} 
         ] 
     }
   },
