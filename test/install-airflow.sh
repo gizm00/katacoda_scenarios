@@ -1,5 +1,5 @@
 sleep 4s
-pip install -r requirements.txt
+pip install -r requirements.txt --ignore-installed
 airflow db init
 airflow users create \
     --username admin \

@@ -1,34 +1,34 @@
-from airflow import DAG
-from airflow.operators.bash import BashOperator
-from datetime import datetime
+# from airflow import DAG
+# from airflow.operators.bash import BashOperator
+# from datetime import datetime
  
-# Default settings applied to all tasks
-default_args = {
-   'owner': 'airflow',
-   'depends_on_past': False,
-   'email_on_failure': False,
-   'email_on_retry': False,
-   'retries': 0,
-   'catchup': False,
-   'start_date': datetime(2021, 1, 1)
-}
+# # Default settings applied to all tasks
+# default_args = {
+#    'owner': 'airflow',
+#    'depends_on_past': False,
+#    'email_on_failure': False,
+#    'email_on_retry': False,
+#    'retries': 0,
+#    'catchup': False,
+#    'start_date': datetime(2021, 1, 1)
+# }
  
-with DAG(
-   dag_id='airflow_demo_dag',
-   description='An example Airflow DAG',
-   schedule_interval=None,
-   default_args=default_args
-   ) as dag:
+# with DAG(
+#    dag_id='airflow_demo_dag',
+#    description='An example Airflow DAG',
+#    schedule_interval=None,
+#    default_args=default_args
+#    ) as dag:
  
-   t1 = BashOperator(
-       task_id='bash_task_10',
-       bash_command='echo "Sleeping..." && sleep 5s && date'
-   )
+#    t1 = BashOperator(
+#        task_id='bash_task_10',
+#        bash_command='echo "Sleeping..." && sleep 5s && date'
+#    )
  
-   for t in range(3):
-       t0 = BashOperator(
-           task_id=f"bash_task_{t}",
-           bash_command=f"echo value: {t}"
-       )
+#    for t in range(3):
+#        t0 = BashOperator(
+#            task_id=f"bash_task_{t}",
+#            bash_command=f"echo value: {t}"
+#        )
  
-       t0 >> t1
+#        t0 >> t1
