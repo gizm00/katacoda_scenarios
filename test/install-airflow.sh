@@ -1,3 +1,4 @@
+sleep 4s
 pip install -r requirements.txt
 airflow db init
 airflow users create \
