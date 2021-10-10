@@ -8,7 +8,7 @@
       {
         "title": "Step 1",
         "text": "step1.md",
-        "background": "install-airlfow.sh"
+        "background": "install-airflow.sh"
       },
       {
         "title": "Step 2",
