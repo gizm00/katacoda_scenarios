@@ -1,4 +1,4 @@
-pip install apache-airflow= --ignore-installed
+pip install -r requirements.txt
 airflow db init
 airflow users create \
     --username admin \
