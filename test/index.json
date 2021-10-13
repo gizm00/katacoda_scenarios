@@ -1,8 +1,8 @@
 {
-  "title": "test",
-  "description": "test",
-  "difficulty": "Beginner",
-  "time": "2",
+  "title": "Prototype to Pipeline: Airflow Example",
+  "description": "Example of running a data pipeline in Airflow",
+  "difficulty": "Intermediate",
+  "time": "15 minutes",
   "details": {
     "steps": [
       {
