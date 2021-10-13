@@ -2,7 +2,7 @@
 
 This katacoda is a companion to Prototype to Pipeline, an interactive session about building data applications from the ground up.  
 
-You can view the video of this session on the [Strata Data Superstream Recording] (https://learning.oreilly.com/videos/strata-data-superstream/0636920551973/)
+You can view the video of this session on the [Strata Data Superstream Recording](https://learning.oreilly.com/videos/strata-data-superstream/0636920551973/).
 The notebooks are available on [github](https://github.com/gizm00/strata_2021) and can be run on [binderhub](https://mybinder.org/v2/gh/gizm00/strata_2021/main).  
 
 The focus of this scenario is illustrating how to run the pipeline discussed in the session, at the end of the Pipeline notebook. This scenario does **not** cover how to setup Airflow.  
