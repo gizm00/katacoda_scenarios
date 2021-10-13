@@ -66,15 +66,20 @@ def get_nf_data(file_name):
 
 @task
 def merge_data(ridb_data, nf_data):
-    merged = distance_merge(ridb_data, nf_data, 2000)
-    # write to file
+    nf_df = pd.DataFrame(nf_data)
+    ridb_df = pd.DataFrame(ridb_data)
+    merged_sites = distance_merge(nf_df, ridb_df, 2000, 'ridb', 'nf')
+    merged_sites.drop(columns=['FacilityLatitude_nf', 'FacilityLongitude_nf', 'index_nf', 'FacilityLongitude_ridb', 'FacilityLatitude_ridb', 'FacilityName', 'geometry'], inplace=True)
+    combined = ridb_df.merge(merged_sites, how='left', on=['FacilityID','CampsiteID'])
+    combined = combined.replace(np.nan, '')
+    combined.to_json(f'data_pipeline_demo_{datetime.utcnow().isoformat()}.json', orient='records')
 
 @task
 def ridb_merge(facilities, campsites):
     df_campsites = pd.DataFrame(list(itertools.chain(*campsites)))
     df_facilities = pd.DataFrame(facilities)
-    df_campsites.merge(df_facilities, on='FacilityID', how='left')
-    # write to file
+    merged = df_campsites.merge(df_facilities, on='FacilityID', how='left')
+    return merged.to_dict('records')
  
 # Default settings applied to all tasks
 default_args = {
@@ -102,7 +107,8 @@ with DAG(
     for item in pipeline_config:
         facilities = get_ridb_data(RIDB_FACILITIES_URL, HEADERS, item['settings'])
         campsites = get_campsite_data(RIDB_FACILITIES_URL, facilities)
-        ridb_merge(facilities, campsites)
+        ridb_data = ridb_merge(facilities, campsites)
         nf_data = get_nf_data(item['nf_sites'])
+        merge_data(ridb_data, nf_data)
 
 
