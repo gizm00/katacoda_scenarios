@@ -20,10 +20,10 @@ You also need to reinitialize the db to include the new dag:
 <!-- Run scheduler.
 `airflow scheduler`{{execute}} -->
 
-If you go back to the [Airflow UI](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) you should now see "data_pipeline_demo" listed at the top of the dag list. Toggle the button next to it to unpause the dag.
+If you go back to the [Airflow UI](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) and reload, you should now see "data_pipeline_demo" listed at the top of the dag list. Toggle the button next to it to unpause the dag.
 
 At this point you can run the pipeline by launching the dag:
-In the terminal:
 `airflow dags trigger data_pipeline_demo`{{execute}}
-Or in the UI:
-Press the play button under "Actions" to the right of the `data_pipeline_dag`
+
+You'll also need to start the scheduler so the tasks will be scheduled:
+`airflow scheduler`{{execute}}

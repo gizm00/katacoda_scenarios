@@ -9,6 +9,9 @@ The focus of this scenario is illustrating how to run the pipeline discussed in 
 
 Setup is complete when you see the Airflow logo, which displays when starting the webserver. At this point you can open the Airflow UI [hosted on port 8080](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
 
+user: `admin`
+password: `password`
+
 When you've brought up the Airflow UI you can move on to the next step.
 
 

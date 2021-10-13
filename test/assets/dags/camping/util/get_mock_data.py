@@ -16,15 +16,15 @@ state_file_template = mock_data_path + "/data/RIDB/facilities/{state}.json"
 campsite_file_template = mock_data_path + "/data/RIDB/campsites/{facility_id}.json"
 ridb_facilities_url = "https://ridb.recreation.gov/api/v1/facilities"
 campsite_details_url = ridb_facilities_url + "/{facility_id}/campsites"
-params = {"activity_id":9, "state":"OR"}
+values = {"activity_id":9, "state":"OR"}
 headers = {"accept": "application/json", "apikey": "b2b7cf12-0a8a-413b-aa75-3125b41977b8"}
 
-def get_facilities_near(params):
+def get_facilities_near(values):
     """
     Expects latitude, longitude, radius to be set
     """
-    file_name = f"{mock_data_path}/RIDB/facilities/{params['latitude']}_{params['longitude']}_{params['radius']}.json"
-    response = requests.get(ridb_facilities_url, params, headers=headers)
+    file_name = f"{mock_data_path}/RIDB/facilities/{values['latitude']}_{values['longitude']}_{values['radius']}.json"
+    response = requests.get(ridb_facilities_url, values, headers=headers)
     if response.status_code == 200:
         with open(file_name, "w+") as f:
             f.write(response.text)
@@ -35,8 +35,8 @@ def get_facilities_near(params):
 
 def get_facilities(state):
     file_name = f"{state_file_template.format(state = state)}"
-    params["state"] = state 
-    response = requests.get(ridb_facilities_url, params, headers=headers)
+    values["state"] = state 
+    response = requests.get(ridb_facilities_url, values, headers=headers)
     if response.status_code == 200:
         with open(file_name, "w+") as f:
             f.write(response.text)

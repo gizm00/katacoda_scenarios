@@ -20,7 +20,7 @@ class RequestMockError(Exception):
 
 class RequestsMock:
     file_dir = os.path.dirname(__file__)
-    relative_to_root = "../../.."
+    relative_to_root = "../.."
     ridb_facilities_path = f"{file_dir}/{relative_to_root}/data/RIDB/facilities"
     ridb_campsites_path = f"{file_dir}/{relative_to_root}/data/RIDB/campsites"
 
@@ -34,15 +34,15 @@ class RequestsMock:
             return Response(500, "Not found", f"No mock data. file_name: {file}")
 
     @classmethod
-    def get(cls, url, params={}, headers={}):
-        if params.get("latitude") is not None:
-            file = f"{cls.ridb_facilities_path}/{params['latitude']}_{params['longitude']}_{params['radius']}.json"
+    def get(cls, url, values={}, headers={}):
+        if values.get("latitude") is not None:
+            file = f"{cls.ridb_facilities_path}/{values['latitude']}_{values['longitude']}_{values['radius']}.json"
         elif url.endswith("facilities"):
-            file = f"{cls.ridb_facilities_path}/{params['state']}.json"
+            file = f"{cls.ridb_facilities_path}/{values['state']}.json"
         elif url.endswith("campsites"):
             site_id = url.split("/")[-2]
             file = f"{cls.ridb_campsites_path}/{site_id}.json"
         else:
-            return Response(500, "Not found", f"No mock data for {url}, params: {params}")
+            return Response(500, "Not found", f"No mock data for {url}, values: {values}")
 
         return cls.do_request(file)
